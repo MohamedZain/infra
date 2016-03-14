@@ -1,5 +1,4 @@
-# infra
-The proposed infrastructure
+# The proposed infrastructure
 ----------------------------
 references : https://www.digitalocean.com/community/tutorials/how-to-create-a-high-availability-setup-with-corosync-pacemaker-and-floating-ips-on-ubuntu-14-04
 
