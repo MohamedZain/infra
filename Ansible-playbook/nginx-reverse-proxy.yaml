@@ -1,0 +1,17 @@
+---
+- hosts: webserver
+  user: root
+ sudo: yes
+  tasks:
+ - name: install the latest version of Nginx
+  yum: name=nginx state=latest
+  - name: download  nginx config file
+  get_url: url=https://raw.githubusercontent.com/MohamedZain/infra/master/Server-1/nginx/sites-available/default dest=/etc/nginx/sites-available/default mode=0440
+    notify:
+    - restart nginx
+  - name: ensure nginx is running (and enable it at boot)
+    service: name=nginx state=started enabled=yes
+  handlers:
+    - name: restart nginx
+      service: name=nginx state=restarted
+
